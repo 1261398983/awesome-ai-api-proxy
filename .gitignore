@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+dist/
+.cache/
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+*.pyc
+.ruff_cache/
+.pytest_cache/
