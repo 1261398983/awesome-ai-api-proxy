@@ -29,7 +29,7 @@ last_reviewed: "2026-07-12"
 # China / Asia relay stations (中轉站)
 # ---------------------------------------------------------------------------
 china_relays:
-  - name: 97wl 中转站 (97wl)
+  - name: RELAY X 中转站 (97wl)
     url: https://api.97wl.cc
     type: mixed
     status: active

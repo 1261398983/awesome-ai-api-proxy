@@ -89,7 +89,7 @@ OpenAI、Anthropic、Google 等官方 API，而是把 `base_url` 改成中轉站
 <!-- providers:china_relays:start -->
 | 中轉站 | 類型 | 支付 | 信任 | 備註 |
 |---|---|---|---|---|
-| 🟡 [97wl 中转站 (97wl)](https://api.97wl.cc) | mixed | 支付寶/微信 | active · 2026-10-21 | 開源 Sub2API 閘道。僅需 QQ 信箱註冊，無邀請碼、無需手機號、不需海外信用卡。按量計費，輸入/輸出分開計價，分組與模型倍率於控制台公開。人民幣 10 元起充。個人運營，無公開主體，建議小額使用。 |
+| 🟡 [RELAY X 中转站 (97wl)](https://api.97wl.cc) | mixed | 支付寶/微信 | active · 2026-10-21 | 開源 Sub2API 閘道。僅需 QQ 信箱註冊，無邀請碼、無需手機號、不需海外信用卡。按量計費，輸入/輸出分開計價，分組與模型倍率於控制台公開。人民幣 10 元起充。個人運營，無公開主體，建議小額使用。 |
 | 🟢 [云雾 API (YUNWU)](https://yunwu.ai) | mixed | 支付寶/微信 | active · 2026-05-26 | 主打高速穩定；社群常列為頭部站。 |
 | 🟢 [柏拉图 AI (bltcy)](https://api.bltcy.ai) | mixed | 支付寶/微信 | active · 2026-06-07 | Azure 通道；主打最低價。new-api fork，1000+ 模型橫跨 25+ 分組；`/api/pricing` 公開 default 分組倍率。 |
 | 🟢 [No.1-API](https://api.rcouyi.com) | aggregator | 支付寶/微信 | active · 2026-05-26 | 一站式聚合 + 中轉平台。 |

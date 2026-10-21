@@ -96,7 +96,7 @@ market, not a workaround niche.
 <!-- providers:china_relays:start -->
 | Station | Type | Payment | Trust | Notes |
 |---|---|---|---|---|
-| 🟡 [97wl 中转站 (97wl)](https://api.97wl.cc) | mixed | Alipay/WeChat | active · 2026-10-21 | Open-source Sub2API gateway. Signup with a QQ mailbox only — no invite code, no phone binding, no foreign card. Per-token billing with input/output priced separately; group and model multipliers shown in the console. CNY 10 minimum top-up. Operated by an individual with no public entity; small top-ups only. |
+| 🟡 [RELAY X 中转站 (97wl)](https://api.97wl.cc) | mixed | Alipay/WeChat | active · 2026-10-21 | Open-source Sub2API gateway. Signup with a QQ mailbox only — no invite code, no phone binding, no foreign card. Per-token billing with input/output priced separately; group and model multipliers shown in the console. CNY 10 minimum top-up. Operated by an individual with no public entity; small top-ups only. |
 | 🟢 [云雾 API (YUNWU)](https://yunwu.ai) | mixed | Alipay/WeChat | active · 2026-05-26 | Marketed on speed/stability; widely cited as a top-tier station. |
 | 🟢 [柏拉图 AI (bltcy)](https://api.bltcy.ai) | mixed | Alipay/WeChat | active · 2026-06-07 | Azure-backed channel; positions as lowest-price. new-api fork with 1000+ models across 25+ access groups; public /api/pricing exposes default-group ratios. |
 | 🟢 [No.1-API](https://api.rcouyi.com) | aggregator | Alipay/WeChat | active · 2026-05-26 | One-stop aggregation + relay platform. |
