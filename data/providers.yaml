@@ -29,6 +29,26 @@ last_reviewed: "2026-07-12"
 # China / Asia relay stations (中轉站)
 # ---------------------------------------------------------------------------
 china_relays:
+  - name: 97wl 中转站 (97wl)
+    url: https://api.97wl.cc
+    type: mixed
+    status: active
+    payment: [alipay, wechat]
+    models: [openai, anthropic, gemini, grok]
+    last_verified: "2026-10-21"
+    verified_by: community
+    entity_registered: false
+    supports_stream: true
+    supports_tools: unknown
+    pricing:
+      pricing_url: https://api.97wl.cc
+      api_url: https://api.97wl.cc/v1
+      fetcher: manual
+      pricing_currency: CNY
+    notes:
+      en: "Open-source Sub2API gateway. Signup with a QQ mailbox only — no invite code, no phone binding, no foreign card. Per-token billing with input/output priced separately; group and model multipliers shown in the console. CNY 10 minimum top-up. Operated by an individual with no public entity; small top-ups only."
+      zh-TW: "開源 Sub2API 閘道。僅需 QQ 信箱註冊，無邀請碼、無需手機號、不需海外信用卡。按量計費，輸入/輸出分開計價，分組與模型倍率於控制台公開。人民幣 10 元起充。個人運營，無公開主體，建議小額使用。"
+      zh-CN: "开源 Sub2API 网关。仅需 QQ 邮箱注册，无邀请码、无需手机号、不需海外信用卡。按量计费，输入/输出分开计价，分组与模型倍率在控制台公开。人民币 10 元起充。个人运营，无公开主体，建议小额使用。"
   - name: 云雾 API (YUNWU)
     url: https://yunwu.ai
     type: mixed

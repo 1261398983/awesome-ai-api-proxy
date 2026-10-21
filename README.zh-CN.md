@@ -89,6 +89,7 @@ OpenAI、Anthropic、Google 等官方 API，而是把 `base_url` 改成中转站
 <!-- providers:china_relays:start -->
 | 中转站 | 类型 | 支付 | 信任 | 备注 |
 |---|---|---|---|---|
+| 🟡 [97wl 中转站 (97wl)](https://api.97wl.cc) | mixed | 支付宝/微信 | active · 2026-10-21 | 开源 Sub2API 网关。仅需 QQ 邮箱注册，无邀请码、无需手机号、不需海外信用卡。按量计费，输入/输出分开计价，分组与模型倍率在控制台公开。人民币 10 元起充。个人运营，无公开主体，建议小额使用。 |
 | 🟢 [云雾 API (YUNWU)](https://yunwu.ai) | mixed | 支付宝/微信 | active · 2026-05-26 | 主打高速稳定；社区常列为头部站。 |
 | 🟢 [柏拉图 AI (bltcy)](https://api.bltcy.ai) | mixed | 支付宝/微信 | active · 2026-06-07 | Azure 通道；主打最低价。new-api fork，1000+ 模型横跨 25+ 分组；`/api/pricing` 公开 default 分组倍率。 |
 | 🟢 [No.1-API](https://api.rcouyi.com) | aggregator | 支付宝/微信 | active · 2026-05-26 | 一站式聚合 + 中转平台。 |
@@ -98,7 +99,7 @@ OpenAI、Anthropic、Google 等官方 API，而是把 `base_url` 改成中转站
 | 🟡 [GPTGOD](https://gptgod.online) | reverse | 支付宝 | unverified · ⚠ 逆向, 无主体 | 逆向；便宜，稳定性无保证。 |
 | 🟢 [CloseAI](https://www.closeai-asia.com) | official-relay | 支付宝/微信/对公 | active · 2026-05-26 · 已注册 | 提供对公发票；自称亚洲最大企业级中转。 |
 | 🟡 [玄枢API (XuanShu API)](https://www.xuanshuapi.com) | mixed | 对公 | unverified · ⚠ 自荐 | 根路径提供 Anthropic Messages 与 Gemini v1beta，/v1 下提供 OpenAI Responses 与 Chat Completions；模型可见性与价格按 Key 和分组在控制台配置。 |
-| 🟡 [TeamoRouter](https://teamorouter.com) | mixed | 支付宝/微信 | unverified · ⚠ 自荐 | 兼容 OpenAI／Anthropic／Gemini 的网关；支付宝与微信支付；运营方宣称多上游路由，并有 Claude Code／Codex 配置教程。 |
+| 🟡 [TeamoRouter](https://teamorouter.com) | mixed | 支付宝/微信 | unverified · ⚠ 自荐 | 兼容 OpenAI／Anthropic／Gemini 的网关；支付宝与微信支付；运营方宣称多上游路由，并有 Claude Code／Codex 配置教程与 gpt-6-astra 支持。 |
 | 🟡 [wawazz.xyz](https://wawazz.xyz) | mixed | 微信 | unverified · ⚠ 自荐, 价过低 | OpenAI 兼容 `/v1`；微信支付；运营方宣称 GPT 可低至官方价 0.07 倍。 |
 | 🟡 [Wappkit API](https://api.wappkit.com) | mixed | — | unverified · ⚠ 自荐 | new-api OpenAI 兼容网关，公开 `/api/pricing`；分组为 Codex／Claude-Code 号池（无扁平 default 组）。 |
 <!-- providers:china_relays:end -->
