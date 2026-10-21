@@ -29,7 +29,7 @@ last_reviewed: "2026-07-12"
 # China / Asia relay stations (中轉站)
 # ---------------------------------------------------------------------------
 china_relays:
-  - name: removed 中转站 (removed)
+  - name: Sample Gateway 中转站 (removed)
     url: https://your-endpoint.example.com
     type: mixed
     status: active
