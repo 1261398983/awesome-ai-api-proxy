@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RELAY X · 逆向工程 | Awesome AI API Proxy</title>
+  <meta name="description" content="RELAY X reverse-engineering API gateway: Claude / GPT / Gemini / Grok behind one OpenAI-compatible endpoint. Plus a curated directory of AI API relays and gateways.">
+  <link rel="canonical" href="https://howardpen9.github.io/awesome-ai-api-proxy/">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #6b7280;
+      --accent: #7c3aed;
+      --border: #e5e7eb;
+      --card: #fafafa;
+      --warn: #f59e0b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f17;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #a78bfa;
+        --border: #1f2937;
+        --card: #111827;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+                 line-height: 1.55; }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; }
+    h1 { font-size: 1.75rem; margin: 0 0 6px; }
+    h2 { font-size: 1.15rem; margin: 32px 0 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .lead { color: var(--muted); margin: 0 0 24px; }
+    .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
+    .meta code { background: var(--card); padding: 2px 6px; border-radius: 4px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+    .controls button {
+      background: var(--card); border: 1px solid var(--border); color: var(--fg);
+      padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 0.9rem;
+    }
+    .controls button[aria-pressed="true"] {
+      background: var(--accent); color: white; border-color: var(--accent);
+    }
+    .controls input {
+      flex: 1; min-width: 200px;
+      background: var(--card); border: 1px solid var(--border); color: var(--fg);
+      padding: 8px 12px; border-radius: 8px; font-size: 0.9rem;
+    }
+    .chart { background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+             padding: 8px; margin-bottom: 24px; min-height: 380px; }
+    .agent-hero {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent),
+                                              color-mix(in srgb, var(--accent) 3%, transparent));
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      border-radius: 16px; padding: 20px 24px; margin: 24px 0 8px;
+    }
+    .agent-hero h2 { margin: 0 0 4px; padding: 0; border: 0; font-size: 1.15rem; color: var(--accent); }
+    .agent-hero p.tagline { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; }
+    .copy-row { display: flex; align-items: center; gap: 8px; margin: 10px 0;
+                background: var(--bg); padding: 6px 6px 6px 12px; border-radius: 8px;
+                border: 1px solid var(--border); }
+    .copy-row code { flex: 1; font-size: 0.82rem; overflow-x: auto;
+                     white-space: nowrap; padding: 4px 0; }
+    .copy-row button {
+      background: var(--accent); color: white; border: 0; padding: 6px 14px;
+      border-radius: 6px; cursor: pointer; font-size: 0.82rem; white-space: nowrap;
+    }
+    .copy-row button:hover { opacity: 0.9; }
+    .copy-row button.copied { background: #10b981; }
+    details.mcp-config { margin-top: 8px; }
+    details.mcp-config summary { cursor: pointer; padding: 4px 0; color: var(--muted); font-size: 0.88rem; }
+    details.mcp-config pre {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 14px; font-size: 0.78rem; overflow-x: auto; margin: 8px 0 0;
+    }
+    .human-divider {
+      text-align: center; margin: 32px 0 8px; color: var(--muted); font-size: 0.9rem;
+      position: relative;
+    }
+    .human-divider::before, .human-divider::after {
+      content: ""; display: inline-block; width: 80px; height: 1px;
+      background: var(--border); vertical-align: middle; margin: 0 12px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--card); position: sticky; top: 0; font-weight: 600; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .table-wrap { max-height: 460px; overflow-y: auto; border: 1px solid var(--border); border-radius: 12px; }
+    a { color: var(--accent); }
+    footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border);
+             color: var(--muted); font-size: 0.85rem; }
+    .warn { color: var(--warn); font-weight: 600; }
+    .loading { color: var(--muted); padding: 40px; text-align: center; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AI API Relay Price Observatory</h1>
+    <p class="lead">
+      <strong>One pricing endpoint for AI agents.</strong>
+      Stop hand-checking 10 relay pricing pages — point your agent here.
+    </p>
+
+    <section class="agent-hero" aria-label="For AI agents">
+      <h2>🤖 For AI agents</h2>
+      <p class="tagline">One URL = every relay's prices, full provenance, refreshed weekly.</p>
+
+      <div class="copy-row">
+        <code id="raw-url">https://raw.githubusercontent.com/howardpen9/awesome-ai-api-proxy/main/data/prices.latest.json</code>
+        <button data-copy="raw-url">Copy URL</button>
+      </div>
+
+      <div class="copy-row">
+        <code id="curl-cmd">curl https://raw.githubusercontent.com/howardpen9/awesome-ai-api-proxy/main/data/prices.latest.json</code>
+        <button data-copy="curl-cmd">Copy curl</button>
+      </div>
+
+      <details class="mcp-config">
+        <summary>Claude Desktop / Cursor / Cline (MCP) — model auto-calls the tool</summary>
+        <pre id="mcp-config">{
+  "mcpServers": {
+    "awesome-ai-api-proxy": {
+      "command": "uvx",
+      "args": ["awesome-ai-api-proxy-mcp"]
+    }
+  }
+}</pre>
+        <div class="copy-row">
+          <code style="white-space: pre-wrap;">uvx awesome-ai-api-proxy-mcp</code>
+          <button data-copy="mcp-config">Copy config</button>
+        </div>
+      </details>
+    </section>
+
+    <div class="meta" id="meta">Loading <code>data/prices.latest.json</code>…</div>
+
+    <div class="human-divider">👀 For humans — explore the data below</div>
+
+    <p class="lead" style="margin-top: 8px;">
+      <strong class="warn">⚠</strong> = relay quotes <50% of OpenRouter (the
+      official-authorized reference baseline) — verify with
+      <a href="https://github.com/howardpen9/awesome-ai-api-proxy/blob/main/docs/canary-prompts.md">canary prompts</a>
+      before trusting.
+    </p>
+
+    <div class="controls" role="tablist" aria-label="Pricing unit">
+      <button data-unit="per_1m_input_tokens" aria-pressed="true">Input tokens (per 1M)</button>
+      <button data-unit="per_1m_output_tokens" aria-pressed="false">Output tokens (per 1M)</button>
+      <button data-tier="all" aria-pressed="true" id="btn-tier-all" style="margin-left: auto;">All tiers</button>
+      <button data-tier="1" aria-pressed="false">T1</button>
+      <button data-tier="2" aria-pressed="false">T2</button>
+      <button data-tier="3" aria-pressed="false">T3</button>
+    </div>
+
+    <h2>Cost-tier ladder</h2>
+    <div class="chart" id="ladder">
+      <div class="loading">Loading chart…</div>
+    </div>
+
+    <h2>Spread heatmap</h2>
+    <div class="chart" id="heatmap">
+      <div class="loading">Loading chart…</div>
+    </div>
+
+    <h2>All records (filterable)</h2>
+    <div class="controls">
+      <input id="search" type="search" placeholder="filter by model / provider / unit…" autocomplete="off">
+    </div>
+    <div class="table-wrap">
+      <table id="records">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Canonical</th>
+            <th>Tier</th>
+            <th>Unit</th>
+            <th class="num">Price (USD)</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="records-body"></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <p>
+        Data: <a href="https://github.com/howardpen9/awesome-ai-api-proxy/blob/main/data/prices.latest.json"><code>data/prices.latest.json</code></a>
+        (refreshed weekly, Sundays 02:00 UTC) ·
+        Source: <a href="https://github.com/howardpen9/awesome-ai-api-proxy">github.com/howardpen9/awesome-ai-api-proxy</a> ·
+        License: MIT ·
+        Maintained by <a href="https://github.com/howardpen9">@howardpen9</a>
+      </p>
+      <p>
+        For LLM agents: see <a href="https://github.com/howardpen9/awesome-ai-api-proxy/blob/main/docs/agent-integration.md">agent-integration.md</a>
+        for MCP / LangChain / OpenAI tool examples.
+      </p>
+    </footer>
+  </main>
+
+<script>
+  const PRICES_URL = "https://raw.githubusercontent.com/howardpen9/awesome-ai-api-proxy/main/data/prices.latest.json";
+  const PROVIDER_LABELS = {
+    "openrouter": "OpenRouter (ref)",
+    "atlascloud": "Atlas Cloud",
+    "relaydance": "Relaydance",
+  };
+  const PROVIDER_COLORS = {
+    "openrouter": "#7c3aed",
+    "atlascloud": "#0ea5e9",
+    "relaydance": "#10b981",
+  };
+
+  let STATE = { unit: "per_1m_input_tokens", tier: "all", records: [], snapshotDate: "" };
+
+  async function load() {
+    let data;
+    try {
+      data = await fetch(PRICES_URL, { cache: "no-cache" }).then(r => r.json());
+    } catch (e) {
+      document.getElementById("meta").innerHTML = `<span class="warn">Failed to load: ${e.message}</span>`;
+      return;
+    }
+    STATE.records = data.records || [];
+    STATE.snapshotDate = data.snapshot_date || "";
+    document.getElementById("meta").innerHTML =
+      `Snapshot <code>${STATE.snapshotDate}</code> · <code>${STATE.records.length}</code> records · generated <code>${data.generated_at || ""}</code>`;
+    render();
+  }
+
+  function filteredCanonical() {
+    return STATE.records.filter(r => {
+      if (!r.canonical_model) return false;
+      if (r.unit !== STATE.unit) return false;
+      if (STATE.tier !== "all" && String(r.tier) !== STATE.tier) return false;
+      return true;
+    });
+  }
+
+  function uniqueSorted(records, key, comparator) {
+    return Array.from(new Set(records.map(r => r[key]))).sort(comparator || ((a, b) => String(a).localeCompare(String(b))));
+  }
+
+  function renderLadder() {
+    const rs = filteredCanonical();
+    if (rs.length === 0) {
+      Plotly.purge("ladder");
+      document.getElementById("ladder").innerHTML = "<div class='loading'>No matching records.</div>";
+      return;
+    }
+    const models = uniqueSorted(rs, "canonical_model");
+    // sort by tier then name for x-axis
+    models.sort((a, b) => {
+      const ta = rs.find(r => r.canonical_model === a)?.tier ?? 99;
+      const tb = rs.find(r => r.canonical_model === b)?.tier ?? 99;
+      return ta - tb || a.localeCompare(b);
+    });
+    const providers = ["openrouter", "atlascloud", "relaydance"].filter(
+      p => rs.some(r => r.provider_id === p)
+    );
+    const traces = providers.map(p => ({
+      x: models,
+      y: models.map(m => {
+        const rec = rs.find(r => r.canonical_model === m && r.provider_id === p);
+        return rec ? rec.price_usd : null;
+      }),
+      name: PROVIDER_LABELS[p] || p,
+      type: "bar",
+      marker: { color: PROVIDER_COLORS[p] || "#888" },
+      hovertemplate: "%{x}<br>$%{y:.4f}<extra>%{fullData.name}</extra>",
+    }));
+    const layout = {
+      margin: { l: 60, r: 20, t: 8, b: 100 },
+      barmode: "group",
+      yaxis: { type: "log", title: "USD per 1M tokens (log)" },
+      xaxis: { tickangle: -28 },
+      paper_bgcolor: "transparent",
+      plot_bgcolor: "transparent",
+      legend: { orientation: "h", y: -0.25 },
+      font: { color: getComputedStyle(document.body).color },
+    };
+    Plotly.newPlot("ladder", traces, layout, { displayModeBar: false, responsive: true });
+  }
+
+  function renderHeatmap() {
+    const rs = filteredCanonical();
+    if (rs.length === 0) {
+      Plotly.purge("heatmap");
+      return;
+    }
+    const models = uniqueSorted(rs, "canonical_model");
+    models.sort((a, b) => {
+      const ta = rs.find(r => r.canonical_model === a)?.tier ?? 99;
+      const tb = rs.find(r => r.canonical_model === b)?.tier ?? 99;
+      return ta - tb || a.localeCompare(b);
+    });
+    const providers = ["openrouter", "atlascloud", "relaydance"].filter(
+      p => rs.some(r => r.provider_id === p)
+    );
+    const z = models.map(m => providers.map(p => {
+      const rec = rs.find(r => r.canonical_model === m && r.provider_id === p);
+      return rec ? rec.price_usd : null;
+    }));
+    const text = z.map(row => row.map(v => v == null ? "—" : (v >= 1 ? `$${v.toFixed(2)}` : `$${v.toFixed(3)}`)));
+    const trace = {
+      z,
+      x: providers.map(p => PROVIDER_LABELS[p] || p),
+      y: models,
+      text,
+      type: "heatmap",
+      colorscale: "Viridis",
+      reversescale: true,
+      hovertemplate: "%{y} · %{x}<br>$%{z:.4f}<extra></extra>",
+      texttemplate: "%{text}",
+      textfont: { size: 11 },
+      showscale: true,
+      colorbar: { title: "$/1M (log)", thickness: 12 },
+    };
+    const layout = {
+      margin: { l: 180, r: 60, t: 8, b: 40 },
+      yaxis: { autorange: "reversed" },
+      paper_bgcolor: "transparent",
+      plot_bgcolor: "transparent",
+      font: { color: getComputedStyle(document.body).color },
+    };
+    Plotly.newPlot("heatmap", [trace], layout, { displayModeBar: false, responsive: true });
+  }
+
+  function renderTable(searchTerm = "") {
+    const q = (searchTerm || "").trim().toLowerCase();
+    const rows = STATE.records
+      .filter(r => !q || JSON.stringify(r).toLowerCase().includes(q))
+      .slice(0, 2000)  // safety cap for browser
+      .map(r => `
+        <tr>
+          <td>${r.provider_name || r.provider_id || "—"}</td>
+          <td><code>${escapeHtml(r.raw_model_name || "")}</code></td>
+          <td>${r.canonical_model ? `<code>${r.canonical_model}</code>` : "—"}</td>
+          <td>${r.tier ?? "—"}</td>
+          <td>${r.unit || ""}</td>
+          <td class="num">${formatPrice(r.price_usd)}</td>
+          <td>${r.source_url ? `<a href="${r.source_url}" target="_blank" rel="noopener">link</a>` : ""}</td>
+        </tr>
+      `).join("");
+    document.getElementById("records-body").innerHTML = rows;
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  }
+  function formatPrice(p) {
+    if (p == null) return "—";
+    if (p >= 10) return `$${p.toFixed(2)}`;
+    if (p >= 1) return `$${p.toFixed(3)}`;
+    return `$${p.toFixed(4)}`;
+  }
+
+  function render() {
+    renderLadder();
+    renderHeatmap();
+    renderTable(document.getElementById("search").value);
+  }
+
+  document.querySelectorAll("[data-unit]").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("[data-unit]").forEach(x => x.setAttribute("aria-pressed", "false"));
+      b.setAttribute("aria-pressed", "true");
+      STATE.unit = b.dataset.unit;
+      render();
+    });
+  });
+  document.querySelectorAll("[data-tier]").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("[data-tier]").forEach(x => x.setAttribute("aria-pressed", "false"));
+      b.setAttribute("aria-pressed", "true");
+      STATE.tier = b.dataset.tier;
+      render();
+    });
+  });
+  document.getElementById("search").addEventListener("input", e => {
+    renderTable(e.target.value);
+  });
+
+  // Agent-hero copy buttons
+  document.querySelectorAll("[data-copy]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const target = document.getElementById(btn.dataset.copy);
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent.trim());
+        const orig = btn.textContent;
+        btn.textContent = "✓ Copied";
+        btn.classList.add("copied");
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 1500);
+      } catch (e) {
+        btn.textContent = "Press Cmd+C";
+        setTimeout(() => { btn.textContent = "Copy"; }, 1500);
+      }
+    });
+  });
+
+  load();
+</script>
+</body>
+</html>
