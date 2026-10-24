@@ -371,7 +371,7 @@ def _build_tier_tables(
         f"[spread-range-output](assets/charts/spread-range-output.svg), "
         f"[savings-vs-ref-output](assets/charts/savings-vs-ref-output.svg), "
         f"[spread-heatmap-input](assets/charts/spread-heatmap-input.svg)). "
-        f"Interactive dashboard: <https://howardpen9.github.io/awesome-ai-api-proxy/>._\n\n"
+        f"Interactive dashboard: <https://1261398983.github.io/awesome-ai-api-proxy/>._\n\n"
     )
     outro = (
         "\n_Full per-model breakdown (including non-canonical models): "
