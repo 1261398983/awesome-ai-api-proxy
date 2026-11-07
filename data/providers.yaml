@@ -29,8 +29,6 @@ last_reviewed: "2026-07-12"
 # China / Asia relay stations (中轉站)
 # ---------------------------------------------------------------------------
 china_relays:
-  - name: Sample Gateway 中转站 (removed)
-    url: https://your-endpoint.example.com
     type: mixed
     status: active
     payment: [alipay, wechat]
@@ -41,8 +39,6 @@ china_relays:
     supports_stream: true
     supports_tools: unknown
     pricing:
-      pricing_url: https://your-endpoint.example.com
-      api_url: https://your-endpoint.example.com/v1
       fetcher: manual
       pricing_currency: CNY
     notes:
